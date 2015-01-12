@@ -8,7 +8,6 @@
     "permissions": [
         "http://xkcd.com/"
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "browser_action": {
         "default_icon": "images/icon19.png",
         "default_popup": "popup.html"
