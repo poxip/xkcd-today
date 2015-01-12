@@ -24,7 +24,6 @@ APP.onLoadingError = function () {
     $('#xkcd-content').removeClass('loading');
     var errorMessage =
         '<div class="ui negative message"> \
-            <i class="close icon"></i> \
         <div class="header"> \
         Sorry, this post cannot be loaded..:( \
         </div> \
@@ -53,7 +52,8 @@ APP.getLatest = function () {
         var img = $('#xkcd-img')[0];
         img.src = data['img'];
         img.addEventListener('load', function() {
-            $('#xkcd-content').removeClass('loading');
+            $('#xkcd-content').parent().removeClass('loading');
+            $('#xkcd-content').transition('fade');
         });
 
         var postDate = new Date(data['year'], data['month'], data['day']);
