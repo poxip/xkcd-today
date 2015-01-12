@@ -3,7 +3,7 @@
 
     "name": "XKCD Today",
     "description": "Serves latest posts from xkcd.com",
-    "version": "0.0.0",
+    "version": "0.0.1",
 
     "icons": {
         "48": "images/icon48.png",
