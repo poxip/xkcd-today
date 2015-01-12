@@ -1,5 +1,6 @@
 # xkcd-today
 ![screenshot of xckd-today](/screenshots/description.png?raw=true)
+
 A simple Google Chrome extension, that quickly serves latest images from [xkcd.com](http://xkcd.com).
 
 ## License
