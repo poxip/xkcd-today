@@ -1,5 +1,5 @@
-# xkcd
-A Google Chrome extension, that quickly serves latest images from [xkcd.com](http://xkcd.com).
+# xkcd-today
+A simple Google Chrome extension, that quickly serves latest images from [xkcd.com](http://xkcd.com).
 
 ## License
 The MIT License (MIT)
