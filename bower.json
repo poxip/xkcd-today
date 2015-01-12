@@ -1,0 +1,33 @@
+{
+  "name": "xkcd-today",
+  "version": "0.0.0",
+  "homepage": "https://github.com/poxip/xkcd-today",
+  "authors": [
+    "Michal Proszek <michal.proszek@gmail.com>"
+  ],
+  "description": "A Google Chrome extension to quickly serve latest images from xkcd.com.",
+  "main": "app/popup.html",
+  "keywords": [
+    "xkcd",
+    "jokes",
+    "geeks",
+    "fun",
+    "google",
+    "chrome",
+    "extension",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "semantic": "~1.6.2",
+    "handlebars": "~2.0.0"
+  }
+}

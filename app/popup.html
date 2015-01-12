@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="pl">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="bower_components/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>XKCD Today - popup</title>
+</head>
+<body>
+    <div class="ui attached header accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="xkcd-title">Loading..</span>
+        </div>
+        <div id="xkcd-alt" class="content">
+            <p>No description</p>
+        </div>
+    </div>
+    <div id="xkcd-content" class="ui loading attached segment">
+        <a id="xkcd-url" href="http://xkcd.com/">
+            <img id="xkcd-img" alt="xkcd <3"/>
+        </a>
+    </div>
+    <div class="ui bottom attached message">
+        <p id="xkcd-date">&nbsp;</p>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
