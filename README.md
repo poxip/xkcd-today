@@ -3,6 +3,21 @@
 
 A simple Google Chrome extension, that quickly serves latest images from [xkcd.com](http://xkcd.com).
 
+## Installation
+### Automatic
+Go to [releases](https://github.com/poxip/xkcd-today/releases) and follow instructions.
+### Manual
+You must have [NodeJS Package Manager (npm)](https://www.npmjs.com/) installed.
+For Ubuntu just execute:
+`sudo apt-get install npm` (`yum install npm` for Fedora, etc..)
+```
+git clone https://github.com/poxip/xkcd-today.git
+cd xkcd-today
+npm install
+bower install
+```
+Then go to __chrome://extensions__ in Chrome, click __"Load extension without package"__ and select __xkcd-today/app__.
+
 ## License
 The MIT License (MIT)
 
