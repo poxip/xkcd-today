@@ -21,9 +21,19 @@ APP.XKCD_TODAY = 'http://xkcd.com/info.0.json';
  * Shows loading error
  */
 APP.onLoadingError = function () {
-    // @TODO: @poxip
-    console.error("Error while loading a post")
     $('#xkcd-content').removeClass('loading');
+    var errorMessage =
+        '<div class="ui negative message"> \
+            <i class="close icon"></i> \
+        <div class="header"> \
+        Sorry, this post cannot be loaded..:( \
+        </div> \
+        <p>Try <a href="#reload">reloading.</a>\
+        </p></div>';
+    $('#xkcd-content').html(errorMessage)
+    $('[href=#reload]').click(function () {
+        location.reload();
+    });
 };
 
 /**
