@@ -54,6 +54,10 @@ APP.getLatest = function () {
         img.addEventListener('load', function() {
             $('#xkcd-content').parent().removeClass('loading');
             $('#xkcd-content').transition('fade');
+            
+            $('#xkcd-url').click(function () {
+                chrome.tabs.create({ url: 'http://xkcd.com/'+data['num'] });
+            });
         });
 
         var postDate = new Date(data['year'], data['month'], data['day']);
