@@ -11,7 +11,6 @@ Please, ensure you have [NodeJS Package Manager (npm)](https://www.npmjs.com/) i
 * Debian/Ubuntu: `sudo apt-get install npm`
 * Fedora: `sudo yum install npm`
 
-then:
 ```
 git clone https://github.com/poxip/xkcd-today.git
 cd xkcd-today
