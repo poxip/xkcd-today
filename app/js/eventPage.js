@@ -5,65 +5,64 @@
 'use strict';
 
 /**
- * All stuff connected with RSS, e.g. looking for updates
+ * All stuff connected with the backgroung, e.g. looking for updates
  * @type {Object}
  */
-var RSS = {};
+var BG = {};
 /**
- * An url to the RSS feed
+ * An url to the api
  * @constant {string}
  */
-RSS.FEED_URL = 'http://xkcd.com/rss.xml';
+BG.API_URL = 'http://xkcd.com/info.0.json';
 /**
  * Name used to regonize the alarm
  * @constant {string}
  */
-RSS.ALARM_NAME = 'rss-update';
+BG.ALARM_NAME = 'check-update';
 /**
- * Chrome Alarm for RSS stuff
+ * Chrome Alarm for updates stuff
  * @type {Alarm}
  */
-RSS.alarm = {
+BG.alarm = {
     when: Date.now(),
     periodInMinutes: 3 * 60 // 3h
 };
 /**
- * A link to the latest entry on xkcd.com
+ * An id of the latest entry on xkcd.com
  * @type {string}
  */
-RSS.latestLink = '';
-// Load the latest link from storage
+BG.latestEntryId = 0;
+// Load the latest entry's id from storage
 chrome.storage.sync.get({
-    latestLink: RSS.latestLink
+    latestEntryId: BG.latestEntryId
 }, function (items) {
-    RSS.latestLink = items.latestLink;
+    BG.latestEntryId = items.latestEntryId;
 });
 /**
  * Method looking for updates
  */
-RSS.checkUpdates = function checkUpdates() {
+BG.checkUpdates = function checkUpdates() {
+    console.log("Checking for updates..");
     var self = this;
 
-    $.get(this.FEED_URL, function (data) {
-        var $xml = $(data);
-        var item = $xml.find('item')[0];
-        var link = item.children[1].innerHTML;
+    $.get(this.API_URL, function (data) {
+        var id = data['num'];
 
         // replace '' with the right link and save
-        if (self.latestLink === '') {
+        if (self.latestEntryId === 0) {
             chrome.storage.sync.set({
-                latestLink: link
+                latestEntryId: id
             });
-            self.latestLink = link;
+            self.latestEntryId = id;
         }
 
-        if (link !== RSS.latestLink) {
+        if (id !== BG.latestEntryId) {
             /* new posts */
-            console.log('RSS: New posts');
+            console.log('BG: New posts');
 
-            self.latestLink = link;
+            self.latestEntryId = id;
             chrome.storage.sync.set({
-                latestLink: link
+                latestEntryId: id
             });
             // Send notification
             chrome.notifications.create('xkcd-updates', {
@@ -80,15 +79,15 @@ RSS.checkUpdates = function checkUpdates() {
     });
 };
 /**
- * A callback method for the RSS Alarm
+ * A callback method for the updates Alarm
  */
-RSS.alarmCallback = function alarmCallback() {
+BG.alarmCallback = function alarmCallback() {
     this.checkUpdates();
 };
 
-chrome.alarms.create('rss-update', RSS.alarm);
+chrome.alarms.create(BG.ALARM_NAME, BG.alarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
-    if (alarm.name === RSS.ALARM_NAME) {
-        RSS.alarmCallback();
+    if (alarm.name === BG.ALARM_NAME) {
+        BG.alarmCallback();
     }
 });
