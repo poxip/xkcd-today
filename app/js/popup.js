@@ -1,8 +1,5 @@
 /**
- * xkcd-today - main javascript file
- *
- * @author poxip
- *
+ * xkcd-today: Logic for popup
  */
 
 // Setup Semantic UI
@@ -10,17 +7,17 @@ $(function () {
     $('.accordion').accordion();
 });
 
-var APP = {};
+var POPUP = {};
 /**
  * A API url to the latest post.
- * @type {string}
+ * @constant {string}
  */
-APP.XKCD_TODAY = 'http://xkcd.com/info.0.json';
+POPUP.XKCD_TODAY = 'http://xkcd.com/info.0.json';
 
 /**
  * Shows loading error
  */
-APP.onLoadingError = function () {
+POPUP.onLoadingError = function () {
     $('#xkcd-content').removeClass('loading');
     var errorMessage =
         '<div class="ui negative message"> \
@@ -29,16 +26,17 @@ APP.onLoadingError = function () {
         </div> \
         <p>Try <a href="#reload">reloading.</a>\
         </p></div>';
-    $('#xkcd-content').html(errorMessage)
+    $('#xkcd-content').html(errorMessage);
     $('[href=#reload]').click(function () {
         location.reload();
     });
 };
 
 /**
- * Polls xkcd.com/info.0.json, gets the latest post and then show it.
+ * Polls xkcd.com/info.0.json, gets the latest post and then shows it.
  */
-APP.getLatest = function () {
+POPUP.getLatest = function () {
+    var self = this;
     $.get(this.XKCD_TODAY, function (data) {
         if (!data['img']) {
             this.onLoadingError();
@@ -63,7 +61,12 @@ APP.getLatest = function () {
         var postDate = new Date(data['year'], data['month'], data['day']);
         $('#xkcd-date').text(postDate.toLocaleDateString());
 
+        // Change icon to default (mark the notification as read)
+        chrome.browserAction.setIcon({
+            path: "images/icon19.png"
+        });
+
     }).fail(this.onLoadingError);
 };
 
-APP.getLatest();
+POPUP.getLatest();

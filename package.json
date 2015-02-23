@@ -1,6 +1,6 @@
 {
   "name": "xkcd-today",
-  "version": "0.0.1",
+  "version": "0.1.0-dev",
   "description": "A Google Chrome extension to quickly serve latest images from xkcd.com.",
   "main": "app/popup.html",
   "directories": {
