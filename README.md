@@ -15,9 +15,13 @@ Please, ensure you have [NodeJS Package Manager (npm)](https://www.npmjs.com/) i
 git clone https://github.com/poxip/xkcd-today.git
 cd xkcd-today
 npm install
-bower install
 ```
-Then go to __chrome://extensions__ in Chrome, click __"Load extension without package"__ and select __xkcd-today/app__.
+Then
+* go to __chrome://extensions__ in Chrome, click __"Load extension without package"__ and select __xkcd-today/app__
+
+or
+
+* execute `./grunt build` and install built __.crx extension file__ from __dist__ directory
 
 ## License
 The MIT License (MIT)
