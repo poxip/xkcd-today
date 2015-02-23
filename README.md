@@ -7,9 +7,10 @@ A simple Google Chrome extension, that quickly serves latest images from [xkcd.c
 ### Automatic
 Go to [releases](https://github.com/poxip/xkcd-today/releases) and follow instructions.
 ### Manual
-You must have [NodeJS Package Manager (npm)](https://www.npmjs.com/) installed.
-For Ubuntu just execute:
-`sudo apt-get install npm` (`yum install npm` for Fedora, etc..)
+Please, ensure you have [NodeJS Package Manager (npm)](https://www.npmjs.com/) installed:
+* Debian/Ubuntu: `sudo apt-get install npm`
+* Fedora: `sudo yum install npm`
+
 ```
 git clone https://github.com/poxip/xkcd-today.git
 cd xkcd-today
