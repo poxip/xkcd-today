@@ -19,16 +19,17 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
+# Build .crx
+dist
+
 # Dependency directory
 # Commenting this out is preferred by some people, see
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
 # Bower components
-app/bower_components
+bower_components
+app/vendor
 
 # Users Environment Variables
 .lock-wscript
-
-# WebStorm project
-.idea

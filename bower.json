@@ -22,11 +22,15 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "vendor",
     "test",
     "tests"
   ],
   "dependencies": {
     "jquery": "~2.1.3",
     "semantic": "~1.6.2"
+  },
+  "install": {
+    "path": "app/vendor"
   }
 }
