@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-crx');
 
     grunt.initConfig({
@@ -12,9 +12,33 @@ module.exports = function (grunt) {
         shell: {
             bower: {
                 command: "./bower install"
-            },
-            bowerInstaller: {
-                command: "./bower-installer"
+            }
+        },
+
+        copy: {
+            main: {
+                files: [
+                    // Jquery
+                    {
+                        expand: true,
+                        cwd: 'bower_components/jquery/dist/',
+                        src: [
+                            'jquery.js'
+                        ],
+                        dest: 'app/vendor/jquery/'
+                    },
+                    // Semantic
+                    {
+                        expand: true,
+                        cwd: 'bower_components/semantic-ui/dist/',
+                        src: [
+                            'themes/**',
+                            'semantic.css',
+                            'semantic.js'
+                        ],
+                        dest: 'app/vendor/semantic-ui'
+                    }
+                ]
             }
         },
 
@@ -43,7 +67,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('install', ['shell:bower', 'shell:bowerInstaller']);
+    grunt.registerTask('install', ['shell:bower', 'copy']);
     grunt.registerTask('build', ['crx']);
 
     grunt.registerTask('default', ['install', 'build']);

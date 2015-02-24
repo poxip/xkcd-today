@@ -2,11 +2,6 @@
  * xkcd-today: Logic for popup
  */
 
-// Setup Semantic UI
-$(function () {
-    $('.accordion').accordion();
-});
-
 var POPUP = {};
 /**
  * A API url to the latest post.
@@ -42,24 +37,25 @@ POPUP.getLatest = function () {
             this.onLoadingError();
         }
 
-        $('#xkcd-title').text(data['safe_title']);
-        $('#xkcd-alt').text(
+        $('.xkcd-title').text(data['safe_title']);
+        $('.xkcd-alt').text(
             (data['alt'] !== "") ? data['alt'] : "No description"
         );
 
         var img = $('#xkcd-img')[0];
         img.src = data['img'];
         img.addEventListener('load', function() {
-            $('#xkcd-content').parent().removeClass('loading');
-            $('#xkcd-content').transition('fade');
+            var $xkcdContent = $('#xkcd-content');
+            $xkcdContent.parent().removeClass('loading');
+            $xkcdContent.transition('fade');
             
-            $('#xkcd-url').click(function () {
+            $('.xkcd-url').click(function () {
                 chrome.tabs.create({ url: 'http://xkcd.com/'+data['num'] });
             });
         });
 
         var postDate = new Date(data['year'], data['month'], data['day']);
-        $('#xkcd-date').text(postDate.toLocaleDateString());
+        $('.xkcd-date').text(postDate.toLocaleDateString());
 
         // Change icon to default (mark the notification as read)
         chrome.browserAction.setIcon({
@@ -68,5 +64,18 @@ POPUP.getLatest = function () {
 
     }).fail(this.onLoadingError);
 };
+
+// Setup Semantic UI
+$(function () {
+    $('.accordion').accordion();
+
+    $('.main.segment')
+        .mouseenter(function () {
+            $(this).dimmer('show');
+        })
+        .mouseleave(function () {
+            $(this).dimmer('hide');
+        });
+});
 
 POPUP.getLatest();

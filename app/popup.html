@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="vendor/semantic/semantic.css" />
+    <link rel="stylesheet" href="vendor/semantic-ui/semantic.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="css/popup.css" />
 
     <title>XKCD Today - popup</title>
 </head>
@@ -13,28 +14,44 @@
     <div class="ui attached header accordion">
         <div class="title">
             <i class="dropdown icon"></i>
-            <span id="xkcd-title">Loading..</span>
+            <span class="xkcd-title">Loading..</span>
         </div>
-        <div id="xkcd-alt" class="content">
+        <div class="content xkcd-alt">
             <p>No description</p>
         </div>
     </div>
-    <div class="ui loading attached segment">
+    <div class="ui loading attached main segment">
         <!-- Placeholder -->
         &nbsp;
         <div id="xkcd-content" style="display:none">
-            <a id="xkcd-url" href="#">
+            <a class="xkcd-url" href="#">
                 <img id="xkcd-img" alt="xkcd <3"/>
             </a>
         </div>
+        <div class="ui dimmer">
+            <div class="ui link items">
+                <div class="item xkcd-url" href="#">
+                    <div class="ui inverted center aligned icon large header">
+                        <i class="circular rss icon"></i>
+                        <div class="content">
+                            <span class="xkcd-title">Loading..</span>
+                            <div class="sub header">
+                                <span class="xkcd-alt">No description</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="ui bottom attached message">
-        <p id="xkcd-date">&nbsp;</p>
+        <p class="xkcd-date">&nbsp;</p>
     </div>
 
     <!-- bower:js -->
     <script src="vendor/jquery/jquery.js"></script>
-    <script src="vendor/semantic/semantic.js"></script>
+    <script src="vendor/semantic-ui/semantic.js"></script>
     <!-- endbower -->
 
     <script src="js/popup.js"></script>
