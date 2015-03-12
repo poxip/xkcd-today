@@ -85,6 +85,10 @@ BG.alarmCallback = function alarmCallback() {
     this.checkUpdates();
 };
 
+// Always check on startup
+chrome.runtime.onStartup.addListener(function () {
+    BG.alarmCallback();
+});
 chrome.alarms.create(BG.ALARM_NAME, BG.alarm);
 chrome.alarms.onAlarm.addListener(function (alarm) {
     if (alarm.name === BG.ALARM_NAME) {
