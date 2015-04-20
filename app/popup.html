@@ -11,22 +11,22 @@
     <title>XKCD Today - popup</title>
 </head>
 <body>
-    <div class="ui attached header accordion">
-        <div class="title">
-            <i class="dropdown icon"></i>
+<div class="ui attached main menu">
+    <a class="disabled btn-prev icon item">
+        <i class="left angle icon"></i>
+    </a>
+    <a class="item grow xkcd-url" href="#">
             <span class="xkcd-title">Loading..</span>
-        </div>
-        <div class="content xkcd-alt">
-            <p>No description</p>
-        </div>
+    </a>
+    <a class="disabled btn-next icon item">
+        <i class="right angle icon"></i>
+    </a>
     </div>
-    <div class="ui loading attached main segment">
+<div class="ui attached main segment">
         <!-- Placeholder -->
         &nbsp;
-        <div id="xkcd-content" style="display:none">
-            <a class="xkcd-url" href="#">
-                <img id="xkcd-img" alt="xkcd <3"/>
-            </a>
+    <div id="xkcd-content" class="loading">
+        <img style="max-width: none" class="ui image" id="xkcd-img"/>
         </div>
         <div class="ui dimmer">
             <div class="ui link items">

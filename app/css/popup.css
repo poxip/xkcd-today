@@ -1,0 +1,7 @@
+.main.menu {
+    display: flex;
+}
+
+.main.menu > .item.grow {
+    flex-grow: 1;
+}
