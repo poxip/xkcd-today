@@ -131,13 +131,13 @@ function disableButton($button) {
  * Shows spinner, that indicates something is in progress.
  */
 function entryLoading() {
-    $('#xkcd-content').parent().addClass('loading');
+    $xkcdContent.parent().addClass('loading');
 }
 /**
  * Hides spinner, indicates that content has been loaded
  */
 function entryReady() {
-    $('#xkcd-content').parent().removeClass('loading');
+    $xkcdContent.parent().removeClass('loading');
 }
 
 var $btnPrev = $('.btn-prev');
