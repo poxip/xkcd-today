@@ -68,8 +68,8 @@ BG.checkUpdates = function checkUpdates() {
             chrome.notifications.create('xkcd-updates', {
                 type: "basic",
                 iconUrl: "images/icon128.png",
-                title: "New comics arrived",
-                message: "Check it out now!"
+                title: "New comics arrived!",
+                message: "Check it out"
             }, function () {
             });
             chrome.browserAction.setIcon({
