@@ -72,10 +72,14 @@ POPUP.getEntryById = function getEntryById(id, callback) {
         var $img = $('#xkcd-img');
         $img.attr('src', data['img']);
         $img.on('load', function () {
-            entryReady();
-            $('.xkcd-url').on('click', function () {
+            var $xkcdUrl = $('.xkcd-url');
+            // Replace events from old entry
+            $xkcdUrl.off('click');
+            $xkcdUrl.on('click', function () {
                 chrome.tabs.create({ url: 'http://xkcd.com/'+data['num'] });
             });
+
+            entryReady();
         });
 
         var postDate = new Date(data['year'], data['month'], data['day']);
