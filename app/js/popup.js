@@ -31,7 +31,7 @@ POPUP.onLoadingError = function () {
     var errorMessage =
         '<div class="ui negative message"> \
         <div class="header"> \
-        Sorry, this post cannot be loaded..:( \
+        Sorry, this post cannot be loaded.. \
         </div> \
         <p>Try <a href="#">reloading.</a>\
         </p></div>';
